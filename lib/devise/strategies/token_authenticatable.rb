@@ -29,7 +29,8 @@ module Devise
 
       # TokenAuthenticatable request is valid for any controller and any verb.
       def valid_request?
-        true
+        params[:controller] == "oauth" ||
+        params[:controller] == "api"
       end
 
       # Do not use remember_me behavior with token.
